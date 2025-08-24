@@ -4,6 +4,7 @@
 # [20] Valid Parentheses
 #
 
+
 # @lc code=start
 class Solution(object):
     def isValid(self, s):
@@ -11,16 +12,25 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        s_length = len(s)
-        if s_length % 2 != 0:
-            return False
-        
-        iterations = s_length / 2
 
-        for i in range(iterations):
-            if s[i] != s[-1 * i]:
+        symbols = {'(': ')', '[': ']', '{': '}'}
+        keys = symbols.keys()
+        values = symbols.values()
+
+        ending_of_openings = ''
+        endings_in_string = ''
+
+        for char in s:
+            if char in values:
+                endings_in_string += char
+            elif char in keys:
+                ending_of_openings += symbols[char]
+            else:
                 return False
-        return True
+        
+        if endings_in_string != ending_of_openings:
+            return False
 
-# @lc code=end
+        return True 
 
+# @lc code=en
