@@ -1,3 +1,12 @@
+cases = ["()", "()[]{}", "(]", "([])", "([)]"]
+
+number = 1
+for case in cases:
+    print(f"Case {number}")
+    number += 1
+    result = isValid(case)
+    print(f"\tResult: {result}")
+
 def isValid(s):
     """
     :type s: str
@@ -23,14 +32,3 @@ def isValid(s):
         return False
 
     return True 
-
-
-
-cases = ["()", "()[]{}", "(]", "([])", "([)]"]
-
-number = 1
-for case in cases:
-    print(f"Case {number}")
-    number += 1
-    result = isValid(case)
-    print(f"\tResult: {result}")
